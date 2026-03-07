@@ -1,0 +1,31 @@
+Cell 1 (imports): Imports standard libraries, notebook display tools, OpenAI client, dotenv loader, and the website scraping helper; also adjusts `sys.path` when running from `main/`.
+
+Cell 2 (env + API key checks): Loads `.env`, reads `OPENAI_API_KEY`, and performs validation checks with clear troubleshooting messages.
+
+Cell 3 (trial API call): Sends a simple user message to `gpt-5-nano` to confirm the OpenAI client and key are working.
+
+Cell 4 (scraper utility test): Fetches and prints website contents from `edwarddonner.com` to verify the scraper output.
+
+Cell 5 (system prompt): Defines the assistant persona and output rules (snarky tone, markdown output, no fenced code block).
+
+Cell 6 (user prompt prefix): Defines the reusable request template asking for concise website and announcement/news summaries.
+
+Cell 7 (messages format demo): Demonstrates chat message structure with a simple math example and a `gpt-4.1-nano` completion.
+
+Cell 8 (`messages_for` helper): Builds a reusable message payload that combines the system prompt and website content.
+
+Cell 9 (`summarize` function): Fetches website content, calls `gpt-4.1-mini`, and returns the generated summary text.
+
+Cell 10 (first summarize run): Executes `summarize` for `edwarddonner.com` and outputs the raw model response.
+
+Cell 11 (`display_summary` helper): Wraps `summarize` and renders the output as Markdown in notebook display.
+
+Cell 12 (formatted summary 1): Displays a Markdown-formatted summary for `edwarddonner.com`.
+
+Cell 13 (formatted summary 2): Displays a Markdown-formatted summary for `cnn.com`.
+
+Cell 14 (formatted summary 3): Displays a Markdown-formatted summary for `anthropic.com`.
+
+Cell 15 (custom ABS-CBN summarizer): Defines a new persona and target website (`ABS-CBN` celebrities), then builds a specialized `summary` function for that source.
+
+Cell 16 (custom summary display): Runs the custom `summary` function and renders its output with Markdown display.
