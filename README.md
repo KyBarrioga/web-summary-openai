@@ -20,6 +20,21 @@ OPENAI_API_KEY=your_api_key_here
 - `uv -v`: Show installed `uv` version.
 - `uv sync`: Install/update dependencies from `pyproject.toml` and lockfile.
 
+## Run with Docker
+1. Build the image from project root:
+```bash
+docker build -t web-summary-openai .
+```
+2. Run with your API key from `.env`:
+```bash
+docker run --rm --env-file .env web-summary-openai
+```
+3. Run against a custom URL and model:
+```bash
+docker run --rm --env-file .env web-summary-openai "https://cnn.com" --model "gpt-4.1-mini"
+```
+
 TODO:
 - Upgrade logic to use playwright / selenium for better webscraping web summary
-- Migrate logic to .py when using a more production-scale summarizer
+- ~~Migrate logic to .py when using a more production-scale summarizer~~
+- ~~Dockerize the function so its production-ready~~
