@@ -57,12 +57,15 @@ def summarize(url: str, model: str = "gpt-4.1-nano") -> str:
             "Missing dependency 'openai'. Install it with: pip install openai"
         ) from exc
 
+    print(f"[1/3] Fetching website content from: {url}")
     website_text = fetch_website_contents(url)
+    print("[2/3] Website content fetched. Calling OpenAI for summary...")
     client = OpenAI()
     response = client.chat.completions.create(
         model=model,
         messages=messages_for(website_text),
     )
+    print("[3/3] OpenAI response received.")
     return response.choices[0].message.content or ""
 
 
